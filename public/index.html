@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Підтримка мультимедійних форматів</title>
+</head>
+<body>
+    <h1>Підтримка мультимедійних форматів</h1>
+
+    <!-- AVI -->
+    <h2>Формат AVI (Конвертований)</h2>
+    <video width="640" height="360" controls>
+        <source src="/convert-avi" type="video/mp4">
+        Ваш браузер не підтримує відтворення цього відео.
+    </video>
+    <p><strong>Переваги:</strong> Висока якість відео після конвертації.</p>
+    <p><strong>Недоліки:</strong> Потрібна конвертація на сервері.</p>
+
+    <!-- MP3 -->
+    <h2>Формат MP3</h2>
+    <audio controls>
+        <source src="media/audio.mp3" type="audio/mpeg">
+        Ваш браузер не підтримує формат MP3.
+    </audio>
+    <p><strong>Переваги:</strong> Широко підтримується, компактний розмір файлу.</p>
+    <p><strong>Недоліки:</strong> Лише аудіо.</p>
+
+    <!-- QuickTime Movie -->
+    <h2>Формат QuickTime Movie (Конвертований)</h2>
+    <video width="640" height="360" controls>
+        <source src="/convert-mov" type="video/mp4">
+        Ваш браузер не підтримує відтворення цього відео.
+    </video>
+    <p><strong>Переваги:</strong> Висока якість після конвертації.</p>
+    <p><strong>Недоліки:</strong> Потрібна конвертація.</p>
+
+    <!-- Flash -->
+    <h2>Формат Flash (Емуляція)</h2>
+    <div id="flash-content">
+        <embed src="path/to/flashfile.swf" type="application/x-shockwave-flash">
+    </div>
+    <p><strong>Переваги:</strong> Раніше широко використовувався для анімації та інтерактивних елементів.</p>
+    <p><strong>Недоліки:</strong> Браузери більше не підтримують Flash.</p>
+
+    <script src="https://ruffle.rs/release/ruffle.js"></script>
+    <script>
+        window.RufflePlayer = window.RufflePlayer || {};
+        window.addEventListener("load", () => {
+            const ruffle = window.RufflePlayer.newest();
+            const flash = document.getElementById("flash-content");
+            ruffle.createPlayer().load(flash);
+        });
+    </script>
+
+</body>
+</html>
