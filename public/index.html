@@ -20,7 +20,7 @@
     <!-- MP3 -->
     <h2>Формат MP3</h2>
     <audio controls>
-        <source src="media/audio.mp3" type="audio/mpeg">
+        <source src="/media/audio.mp3" type="audio/mpeg">
         Ваш браузер не підтримує формат MP3.
     </audio>
     <p><strong>Переваги:</strong> Широко підтримується, компактний розмір файлу.</p>
@@ -49,7 +49,9 @@
         window.addEventListener("load", () => {
             const ruffle = window.RufflePlayer.newest();
             const flash = document.getElementById("flash-content");
-            ruffle.createPlayer().load(flash);
+            if (ruffle) {
+                ruffle.createPlayer().load(flash);
+            }
         });
     </script>
 
